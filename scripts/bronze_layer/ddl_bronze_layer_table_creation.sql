@@ -3,17 +3,14 @@
 Bronze Layer- Table Creation
 -----------------------------------
 Purpose:
--> To create the appropriate tables for the DB 'Brazil_E_Commerce_DataWarehouse'.
--> This script Drops the table if it already exisits and then Creates the appropriate tables. 
+    Creates the 9 bronze tables that hold the raw Olist CSV data. Each table
+    is dropped and recreated if it already exists.
 
-Data types used:
--> INT, FLOAT, DATETIME2, NVARCHAR
-
-Please note: 
--> Since this script drops the table data already present in these tables will be deleted. 
--> If tables exsist, be sure to ignore the 
-      IF OBJECT_ID ('table_name', 'U') IS NOT NULL
-	        DROP TABLE table_name
+Notes:
+    - Column names match the source files (including the source's own
+      spelling, e.g. product_name_lenght).
+    - Zip codes are NVARCHAR so leading zeros are kept.
+    - Run this script before bronze.load_bronze.
 */
 
 
